@@ -19,17 +19,19 @@ The api returns a list of Beer Objects.
 * Create a page with a table for the list of Beers (use material table https://material-table.com/#/docs/get-started)
   - when a column header is drag and dropped, the new column order should be stored in redux so that the order is maintained even when a user moves between ``/home`` and ``/beerlist``
 
-* When a beer name is clicked on, a modal should appear containing all the info of the selected beer (use ant-design)
+* When a beer name is clicked on, a modal should appear containing all the info of the selected beer
 
 #### Choose one
 1. Create a Shopping basket to add and remove beers from
       - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
 2. Create a filter so that users can filter the beers by abv range
       - multiselecting should be available
-  
+
+
 #### Styling
 
 * Use Styled Components to style your project
+* Ant Design should be used for basic components (https://ant.design/components/overview/)
   
 *Styling of the UI and consideration of UX will be taken into consideration  
 *Additional features can be added if the tester wishes to display more than required
