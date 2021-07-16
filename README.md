@@ -27,6 +27,9 @@ The api returns a list of Beer Objects.
 2. Create a filter so that users can filter the beers by abv range
       - multiselecting should be available
   
+#### Styling
+
+* Use Styled Components to style your project
   
 *Styling of the UI and consideration of UX will be taken into consideration  
 *Additional features can be added if the tester wishes to display more than required
