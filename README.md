@@ -14,7 +14,7 @@ The api returns a list of Beer Objects.
 #### Styling
 
 * Use Styled Components to style your project
-* Ant Design should be used for basic components (https://ant.design/components/overview/)
+* Ant Design can be used for basic components (https://ant.design/components/overview/)
 
 #### Required
 * Redirect users to ``/home`` when they first arrive
