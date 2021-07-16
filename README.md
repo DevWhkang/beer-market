@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+## FrontEnd Coding Test Template
+안녕하세요,  
+Tradir.io에 지원해주셔서 감사합니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tradir.io 주니어 프론트엔드 개발자 코딩테스트 기본 템플릿입니다.  
+해당 repository를 클론하셔서 아래 명시된 항목들만 완성해 주시면 됩니다.
 
-## Available Scripts
+### Instructions
 
-In the project directory, you can run:
+Use the following open api to get data for the table: https://api.punkapi.com/v2/beers  
+The api returns a list of Beer Objects.
 
-### `npm start`
+#### Required
+* Redirect users to ``/home`` when they first arrive
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Create a Link to a ``/beerlist`` page on the homepage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Create a page with a table for the list of Beers (use material table https://material-table.com/#/docs/get-started)
+  - when a column header is drag and dropped, the new column order should be stored in redux so that the order is maintained even when a user moves between ``/home`` and ``/beerlist``
 
-### `npm test`
+* When a beer name is clicked on, a modal should appear containing all the info of the selected beer (use ant-design)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Choose one
+1. Create a Shopping basket to add and remove beers from
+      - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
+2. Create a filter so that users can filter the beers by abv range
+      - multiselecting should be available
+  
+  
+*Styling of the UI and consideration of UX will be taken into consideration  
+*Additional features can be added if the tester wishes to display more than required
