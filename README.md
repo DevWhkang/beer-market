@@ -26,7 +26,7 @@ The api returns a list of Beer Objects.
 
 * When a beer name is clicked on, a modal should appear containing all the info of the selected beer
 
-* Create a filter so that users can filter the beers by ``abv`` range ex)"5~6", "6~7"
+* Create a filter so that users can filter the beers by ``abv`` range ex)"5-6", "6-7"
   - multiselection should be available
 
 #### Optional
