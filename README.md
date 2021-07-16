@@ -30,7 +30,7 @@ The api returns a list of Beer Objects.
   - multiselection should be available
 
 #### Optional
-* Create a Shopping basket to add and remove beers from
+* Create a Shopping basket to add and remove beers from  
       - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
   
 ### Grading Standards
