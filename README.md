@@ -11,6 +11,11 @@ Tradir.io 주니어 프론트엔드 개발자 코딩테스트 기본 템플릿�
 Use the following open api to get data for the table: https://api.punkapi.com/v2/beers  
 The api returns a list of Beer Objects.
 
+#### Styling
+
+* Use Styled Components to style your project
+* Ant Design should be used for basic components (https://ant.design/components/overview/)
+
 #### Required
 * Redirect users to ``/home`` when they first arrive
 
@@ -27,11 +32,6 @@ The api returns a list of Beer Objects.
 #### Optional
 * Create a Shopping basket to add and remove beers from
       - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
-
-#### Styling
-
-* Use Styled Components to style your project
-* Ant Design should be used for basic components (https://ant.design/components/overview/)
   
 ### Grading Standards
 * Completion of the required functionalities(50%)
