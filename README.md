@@ -21,17 +21,21 @@ The api returns a list of Beer Objects.
 
 * When a beer name is clicked on, a modal should appear containing all the info of the selected beer
 
-#### Choose one
-1. Create a Shopping basket to add and remove beers from
-      - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
-2. Create a filter so that users can filter the beers by abv range
-      - multiselecting should be available
+* Create a filter so that users can filter the beers by ``abv`` range ex)"5~6", "6~7"
+  - multiselection should be available
 
+#### Optional
+* Create a Shopping basket to add and remove beers from
+      - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
 
 #### Styling
 
 * Use Styled Components to style your project
 * Ant Design should be used for basic components (https://ant.design/components/overview/)
   
-*Styling of the UI and consideration of UX will be taken into consideration  
-*Additional features can be added if the tester wishes to display more than required
+### Grading Standards
+* Completion of the required functionalities(50%)
+* Code Quality (35%)
+* UI/UX Design (15%)
+
+*Additional features can be added if the tester wishes to display more than the required functionalities
