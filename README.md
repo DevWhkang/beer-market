@@ -39,3 +39,5 @@ The api returns a list of Beer Objects.
 * UI/UX Design (15%)
 
 *Additional features can be added if the tester wishes to display more than the required functionalities
+
+과제 진행중 추가적인 문의 사항이 있으실 경우, 언제든지 편하게 연락 주시기 바랍니다.
