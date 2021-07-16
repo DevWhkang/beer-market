@@ -21,7 +21,7 @@ The api returns a list of Beer Objects.
 
 * Create a Link to a ``/beerlist`` page on the homepage
 
-* Create a page with a table for the list of Beers (use material table https://material-table.com/#/docs/get-started)
+* Create a page with a table for the list of Beers (material table can be used https://material-table.com/#/docs/get-started)
   - when a column header is drag and dropped, the new column order should be stored in redux so that the order is maintained even when a user moves between ``/home`` and ``/beerlist``
 
 * When a beer name is clicked on, a modal should appear containing all the info of the selected beer
