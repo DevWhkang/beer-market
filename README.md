@@ -1,5 +1,12 @@
+## Tradir.io 주니어 프론트엔드 개발자 코딩 과제를 위한 저장소 입니다.
+
+<details>
+<summary>과제 내용</summary>
+
+
 ## FrontEnd Coding Test Template
-안녕하세요,  
+
+안녕하세요, 
 Tradir.io에 지원해 주셔서 감사합니다.
 
 Tradir.io 주니어 프론트엔드 개발자 코딩 테스트 기본 템플릿입니다.  
@@ -17,6 +24,7 @@ The api returns a list of Beer Objects.
 * Ant Design can be used for basic components (https://ant.design/components/overview/)
 
 #### Required
+
 * Redirect users to ``/home`` when they first arrive
 
 * Create a Link to a ``/beerlist`` page on the homepage
@@ -30,10 +38,12 @@ The api returns a list of Beer Objects.
   - multiselection should be available
 
 #### Optional
+
 * Create a Shopping basket to add and remove beers from  
   - Shopping basket should be accessible from both ``/home`` and ``/beerlist``
-  
+
 ### Grading Standards
+
 * Completion of the required functionalities(50%)
 * Code Quality (35%)
 * UI/UX Design (15%)
@@ -41,3 +51,4 @@ The api returns a list of Beer Objects.
 *Additional features can be added if the tester wishes to display more than the required functionalities
 
 과제 진행 중 추가적인 문의 사항이 있으실 경우, 언제든지 편하게 연락 주시기 바랍니다.
+</details>
