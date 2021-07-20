@@ -20,13 +20,13 @@ const Navigation = () => {
   return (
     <NavigationWrapper>
       <MenuList mode="horizontal">
-        <Item>
+        <Item key="home">
           <Link to="/home">Home</Link>
         </Item>
-        <Item>
+        <Item key="beer-list">
           <Link to="/beer-list">Beer List</Link>
         </Item>
-        <Item>
+        <Item key="wish-list">
           <Link to="/wish-list">Wish List</Link>
         </Item>
       </MenuList>
