@@ -53,6 +53,12 @@ The api returns a list of Beer Objects.
 과제 진행 중 추가적인 문의 사항이 있으실 경우, 언제든지 편하게 연락 주시기 바랍니다.
 </details>
 
+# 과제 진행 플로우
+### Separate issue tasks -> Scheduling with Project Kanban Board
+
+# git flow
+### master -> dev -> features -> merge to dev -> master
+
 # Screenshot
 ### Home page
 
@@ -61,9 +67,15 @@ The api returns a list of Beer Objects.
 
 ### Beer list page
 
-![스크린샷 2021-07-21 오후 11 13 33](https://user-images.githubusercontent.com/56540563/126503976-067d36f1-134e-49b8-93b9-a0913df4e6ca.png)
+![스크린샷 2021-07-22 오전 3 07 03](https://user-images.githubusercontent.com/56540563/126539446-ad30f626-2cc4-4917-9983-a64bf23ca0df.png)
 
 
 ### Beer Detail modal
 
 ![스크린샷 2021-07-21 오후 11 13 44](https://user-images.githubusercontent.com/56540563/126504036-80ac4cf7-e5b0-48e3-9eb3-b977dc640b08.png)
+
+
+### Wish list page
+
+![스크린샷 2021-07-22 오전 3 07 28](https://user-images.githubusercontent.com/56540563/126539531-8823c7f9-8e6d-43e1-96f9-f86342790137.png)
+
