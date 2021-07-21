@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../Components/Layout";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const HomeWrapper = styled.main`
   text-align: center;
