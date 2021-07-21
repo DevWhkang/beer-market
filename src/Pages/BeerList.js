@@ -44,7 +44,7 @@ const BeerList = () => {
       title: "BEER",
       field: "name",
       render: (row) => (
-        <a href="#" onClick={showModal}>
+        <a href={() => false} onClick={showModal}>
           {row.name}
         </a>
       ),
