@@ -2,6 +2,7 @@ const initialState = {
   isLoading: false,
   beerList: [],
   beerTableColumns: [],
+  wishList: [],
 };
 
 // action creator
@@ -21,6 +22,20 @@ export const setBeerTableColumns = (data) => {
 export const changeBeerTableColumn = (data) => {
   return {
     type: "CHANGE_BEER_TABLE_COLUMN",
+    data,
+  };
+};
+
+export const setWishList = (data) => {
+  return {
+    type: "SET_WISH_LIST",
+    data,
+  };
+};
+
+export const removeWishList = (data) => {
+  return {
+    type: "REMOVE_WISH_LIST",
     data,
   };
 };
@@ -61,6 +76,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         beerTableColumns: [...state.beerTableColumns],
+      };
+    case "SET_WISH_LIST":
+      return {
+        ...state,
+        wishList: [...state.wishList, action.data],
+      };
+    case "REMOVE_WISH_LIST":
+      const removeIdx = state.wishList.findIndex((v) => v === action.data);
+      state.wishList.splice(removeIdx, 1);
+      return {
+        ...state,
+        wishList: [...state.wishList],
       };
     default:
       return state;

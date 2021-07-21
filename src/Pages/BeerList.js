@@ -4,12 +4,14 @@ import {
   getBeerList,
   setBeerTableColumns,
   changeBeerTableColumn,
+  setWishList,
 } from "../Modules/Reducers/beers";
 import { useDispatch, useSelector } from "react-redux";
 import MaterialTable from "material-table";
 import styled from "styled-components";
 import BeerDetailInfo from "../Components/BeerDetailInfo";
 import { Spin, Select } from "antd";
+import { ShoppingCartOutlined, CheckCircleOutlined } from "@ant-design/icons";
 
 const BeerListTableWrapper = styled.div`
   margin: 5% 20% 5% 20%;
@@ -20,14 +22,31 @@ const Loading = styled(Spin)`
   margin-top: 250px;
 `;
 
+const WishListIcon = styled(ShoppingCartOutlined)`
+  font-size: 20px;
+  margin-left: 30px;
+
+  :hover {
+    color: #ffab00;
+  }
+`;
+
+const CheckWishListIcon = styled(CheckCircleOutlined)`
+  font-size: 20px;
+  margin-left: 30px;
+  color: #c8c8c8;
+`;
+
 const BeerList = () => {
   const dispatch = useDispatch();
   const beerList = useSelector((state) => state.beers.beerList);
   const beerTableColumns = useSelector((state) => state.beers.beerTableColumns);
   const isLoading = useSelector((state) => state.beers.isLoading);
+  const wishList = useSelector((state) => state.beers.wishList);
 
   const data = beerList.map((info) => {
     return {
+      id: info.id,
       name: info.name,
       abv: info.abv,
       summary: info.tagline,
@@ -56,6 +75,40 @@ const BeerList = () => {
       title: "SUMMARY",
       field: "summary",
     },
+    {
+      id: 4,
+      title: "Add Wish List",
+      render: (row) =>
+        wishList.includes(row.id) ? (
+          <CheckWishListIcon />
+        ) : (
+          <WishListIcon onClick={() => handleClickAddWishList(row.id)} />
+        ),
+    },
+  ];
+
+  const customIcons = [
+    {
+      onClick: () => {}, // Handle error: Invalid prop `actions[0]` supplied to `MaterialTable`
+      isFreeAction: true,
+      tooltip: "Filter by abv",
+      icon: () => (
+        <Select
+          defaultValue="All"
+          style={{ width: 100 }}
+          onChange={handleChangeSelectedAdv}
+        >
+          {["All", 1, 2, 3, 4, 5, 6, 7].map((v) => (
+            <Select.Option
+              key={v}
+              value={v === "All" ? "All" : `${v}~${v + 1}`}
+            >
+              {v === "All" ? "All" : `${v}~${v + 1}`}
+            </Select.Option>
+          ))}
+        </Select>
+      ),
+    },
   ];
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -76,6 +129,10 @@ const BeerList = () => {
         : data.filter((v) => start <= v.abv && v.abv < end)
     );
   }, [selectedAdv]);
+
+  const handleClickAddWishList = (id) => {
+    dispatch(setWishList(id));
+  };
 
   const handleChangeSelectedAdv = (value) => {
     setSelectedAdv(value);
@@ -109,29 +166,7 @@ const BeerList = () => {
             title="Beer List: Click! on a beer name to see details🍺"
             options={{ paging: false }}
             onColumnDragged={handleColumnDragged}
-            actions={[
-              {
-                onClick: () => {}, // Handle error: Invalid prop `actions[0]` supplied to `MaterialTable`
-                isFreeAction: true,
-                tooltip: "Filter by abv",
-                icon: () => (
-                  <Select
-                    defaultValue="All"
-                    style={{ width: 100 }}
-                    onChange={handleChangeSelectedAdv}
-                  >
-                    {["All", 1, 2, 3, 4, 5, 6, 7].map((v) => (
-                      <Select.Option
-                        key={v}
-                        value={v === "All" ? "All" : `${v}~${v + 1}`}
-                      >
-                        {v === "All" ? "All" : `${v}~${v + 1}`}
-                      </Select.Option>
-                    ))}
-                  </Select>
-                ),
-              },
-            ]}
+            actions={customIcons}
           />
         )}
         {isModalVisible && (
