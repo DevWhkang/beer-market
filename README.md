@@ -1,4 +1,4 @@
-# Tradir.io 주니어 프론트엔드 개발자 코딩 과제를 위한 저장소 입니다.
+# Tradir.io 주니어 프론트엔드 개발자 코딩 과제를 위한 저장소
 
 <details>
 <summary>과제 내용</summary>
