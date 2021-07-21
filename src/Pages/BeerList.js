@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../Components/Layout";
 import {
   getBeerList,
@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MaterialTable from "material-table";
 import styled from "styled-components";
 import BeerDetailInfo from "../Components/BeerDetailInfo";
-import { Spin } from "antd";
+import { Spin, Select } from "antd";
 
 const BeerListTableWrapper = styled.div`
   margin: 5% 20% 5% 20%;
@@ -26,9 +26,6 @@ const BeerList = () => {
   const beerTableColumns = useSelector((state) => state.beers.beerTableColumns);
   const isLoading = useSelector((state) => state.beers.isLoading);
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [modalTarget, setModalTarget] = useState("");
-
   const data = beerList.map((info) => {
     return {
       name: info.name,
@@ -44,7 +41,7 @@ const BeerList = () => {
       title: "BEER",
       field: "name",
       render: (row) => (
-        <a href="#" onClick={showModal}>
+        <a href="#!" onClick={showModal}>
           {row.name}
         </a>
       ),
@@ -61,9 +58,28 @@ const BeerList = () => {
     },
   ];
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalTarget, setModalTarget] = useState("");
+  const [selectedAdv, setSelectedAdv] = useState("All");
+  const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
     dispatch(getBeerList());
   }, [dispatch]);
+
+  useEffect(() => {
+    const [start, end] = selectedAdv.split("~");
+
+    setFilteredData(
+      selectedAdv === "All"
+        ? data
+        : data.filter((v) => start <= v.abv && v.abv < end)
+    );
+  }, [selectedAdv]);
+
+  const handleChangeSelectedAdv = (value) => {
+    setSelectedAdv(value);
+  };
 
   const handleColumnDragged = (sourceIndex, destinationIndex) => {
     if (!beerTableColumns.length) {
@@ -89,10 +105,33 @@ const BeerList = () => {
         ) : (
           <MaterialTable
             columns={beerTableColumns.length ? beerTableColumns : columns}
-            data={data}
-            title="Beer List"
+            data={filteredData.length ? filteredData : data}
+            title="Beer List: Click! on a beer name to see details🍺"
             options={{ paging: false }}
             onColumnDragged={handleColumnDragged}
+            actions={[
+              {
+                onClick: () => {}, // Handle error: Invalid prop `actions[0]` supplied to `MaterialTable`
+                isFreeAction: true,
+                tooltip: "Filter by abv",
+                icon: () => (
+                  <Select
+                    defaultValue="All"
+                    style={{ width: 100 }}
+                    onChange={handleChangeSelectedAdv}
+                  >
+                    {["All", 1, 2, 3, 4, 5, 6, 7].map((v) => (
+                      <Select.Option
+                        key={v}
+                        value={v === "All" ? "All" : `${v}~${v + 1}`}
+                      >
+                        {v === "All" ? "All" : `${v}~${v + 1}`}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                ),
+              },
+            ]}
           />
         )}
         {isModalVisible && (
