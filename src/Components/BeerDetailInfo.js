@@ -11,6 +11,7 @@ const BeerDetailWrapper = styled.section`
     width: 10%;
     height: 10%;
     margin-left: 40px;
+    margin-top: 20px;
   }
 `;
 
@@ -68,6 +69,8 @@ const BeerDetailInfo = ({ isModalVisible, handleChangeVisible, target }) => {
       visible={isModalVisible}
       onCancel={handleCancel}
       width={1000}
+      cancelButtonProps={{ style: { display: "none" } }}
+      okButtonProps={{ style: { display: "none" } }}
     >
       <BeerDetailWrapper>
         <img src={targetBeer.image_url} alt={targetBeer.tagline} />

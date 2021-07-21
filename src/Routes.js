@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./Pages/Home";
 import BeerList from "./Pages/BeerList";
+import WishList from "./Pages/WishList";
 
 const Routes = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Routes = () => {
       <Switch>
         <Route path="/home" component={Home} />
         <Route path="/beer-list" component={BeerList} />
+        <Route path="/wish-list" component={WishList} />
         <Redirect path="*" to="/home" />
       </Switch>
     </Router>
