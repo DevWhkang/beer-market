@@ -57,7 +57,7 @@ The api returns a list of Beer Objects.
 ### Separate issue tasks -> Scheduling with Project Kanban Board
 
 # git flow
-### master -> dev -> features -> merge to dev -> master
+### master -> dev -> features -> merge to dev(default branch: dev)
 
 # Screenshot
 ### Home page
