@@ -1,4 +1,4 @@
-## Tradir.io 주니어 프론트엔드 개발자 코딩 과제를 위한 저장소 입니다.
+# Tradir.io 주니어 프론트엔드 개발자 코딩 과제를 위한 저장소 입니다.
 
 <details>
 <summary>과제 내용</summary>
@@ -52,3 +52,18 @@ The api returns a list of Beer Objects.
 
 과제 진행 중 추가적인 문의 사항이 있으실 경우, 언제든지 편하게 연락 주시기 바랍니다.
 </details>
+
+# Screenshot
+### Home page
+
+![스크린샷 2021-07-21 오후 11 13 22](https://user-images.githubusercontent.com/56540563/126503942-2aac1c54-3992-4848-9a60-873fe07ea5dc.png)
+
+
+### Beer list page
+
+![스크린샷 2021-07-21 오후 11 13 33](https://user-images.githubusercontent.com/56540563/126503976-067d36f1-134e-49b8-93b9-a0913df4e6ca.png)
+
+
+### Beer Detail modal
+
+![스크린샷 2021-07-21 오후 11 13 44](https://user-images.githubusercontent.com/56540563/126504036-80ac4cf7-e5b0-48e3-9eb3-b977dc640b08.png)
