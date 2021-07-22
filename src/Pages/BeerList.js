@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Layout from "../Components/Layout";
 import {
   getBeerList,
@@ -44,15 +44,19 @@ const BeerList = () => {
   const isLoading = useSelector((state) => state.beers.isLoading);
   const wishList = useSelector((state) => state.beers.wishList);
 
-  const data = beerList.map((info) => {
-    return {
-      id: info.id,
-      name: info.name,
-      abv: info.abv,
-      summary: info.tagline,
-      img: info.image_url,
-    };
-  });
+  const data = useMemo(
+    () =>
+      beerList.map((info) => {
+        return {
+          id: info.id,
+          name: info.name,
+          abv: info.abv,
+          summary: info.tagline,
+          img: info.image_url,
+        };
+      }),
+    [beerList]
+  );
 
   const columns = [
     {
