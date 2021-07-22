@@ -55,7 +55,7 @@ The api returns a list of Beer Objects.
 
 # Demo
 
-[Demo Link](http://58.123.26.86:3000)
+[Demo Link](https://bit.ly/3kE79ai)
 
 # 과제 진행 플로우
 ### Separate issue tasks -> Scheduling with Project Kanban Board
