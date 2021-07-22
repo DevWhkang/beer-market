@@ -16,7 +16,7 @@ const Routes = () => {
 
     head.setAttribute(
       "href",
-      "https://cdn.icon-icons.com/icons2/1368/PNG/512/-beer_89775.png"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL_zDkAYNSDKcMrH49z9dMI3Otj7sxSZ6jMw&usqp=CAU"
     );
   }, []);
   return (
