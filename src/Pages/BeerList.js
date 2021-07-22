@@ -128,7 +128,7 @@ const BeerList = () => {
         ? data
         : data.filter((v) => start <= v.abv && v.abv < end)
     );
-  }, [selectedAdv]);
+  }, [selectedAdv, data]);
 
   const handleClickAddWishList = (id) => {
     dispatch(setWishList(id));
