@@ -4,14 +4,13 @@ import {
   getBeerList,
   setBeerTableColumns,
   changeBeerTableColumn,
-  setWishList,
 } from "../Modules/Reducers/beers";
 import { useDispatch, useSelector } from "react-redux";
 import MaterialTable from "material-table";
 import styled from "styled-components";
-import BeerDetailInfo from "../Components/BeerDetailInfo";
 import { Spin, Select } from "antd";
-import { ShoppingCartOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import BeerTitleLink from "../Components/BeerTitleLink";
+import AddWishList from "../Components/AddWishList";
 
 const BeerListTableWrapper = styled.div`
   margin: 5% 20% 5% 20%;
@@ -22,27 +21,14 @@ const Loading = styled(Spin)`
   margin-top: 250px;
 `;
 
-const WishListIcon = styled(ShoppingCartOutlined)`
-  font-size: 20px;
-  margin-left: 30px;
-
-  :hover {
-    color: #ffab00;
-  }
-`;
-
-const CheckWishListIcon = styled(CheckCircleOutlined)`
-  font-size: 20px;
-  margin-left: 30px;
-  color: #c8c8c8;
-`;
-
 const BeerList = () => {
   const dispatch = useDispatch();
   const beerList = useSelector((state) => state.beers.beerList);
   const beerTableColumns = useSelector((state) => state.beers.beerTableColumns);
   const isLoading = useSelector((state) => state.beers.isLoading);
-  const wishList = useSelector((state) => state.beers.wishList);
+
+  const [selectedAdv, setSelectedAdv] = useState("All");
+  const [filteredData, setFilteredData] = useState([]);
 
   const data = useMemo(
     () =>
@@ -58,38 +44,41 @@ const BeerList = () => {
     [beerList]
   );
 
-  const columns = [
-    {
-      id: 1,
-      title: "BEER",
-      field: "name",
-      render: (row) => (
-        <a href="#!" onClick={showModal}>
-          {row.name}
-        </a>
-      ),
-    },
-    {
-      id: 2,
-      title: "ABV",
-      field: "abv",
-    },
-    {
-      id: 3,
-      title: "SUMMARY",
-      field: "summary",
-    },
-    {
-      id: 4,
-      title: "Add Wish List",
-      render: (row) =>
-        wishList.includes(row.id) ? (
-          <CheckWishListIcon />
-        ) : (
-          <WishListIcon onClick={() => handleClickAddWishList(row.id)} />
-        ),
-    },
-  ];
+  const columns = useMemo(() => {
+    return beerTableColumns.length
+      ? beerTableColumns.map((v) => {
+          return {
+            ...v,
+            tableData: {
+              ...v.tableData,
+              width: null, // If you drag and drop a column and then route, it is calculate cumulatively
+            },
+          };
+        })
+      : [
+          {
+            id: 1,
+            title: "BEER",
+            field: "name",
+            render: (row) => <BeerTitleLink row={row} />,
+          },
+          {
+            id: 2,
+            title: "ABV",
+            field: "abv",
+          },
+          {
+            id: 3,
+            title: "SUMMARY",
+            field: "summary",
+          },
+          {
+            id: 4,
+            title: "Add Wish List",
+            render: (row) => <AddWishList row={row} />,
+          },
+        ];
+  }, [beerTableColumns]);
 
   const customIcons = [
     {
@@ -115,11 +104,6 @@ const BeerList = () => {
     },
   ];
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [modalTarget, setModalTarget] = useState("");
-  const [selectedAdv, setSelectedAdv] = useState("All");
-  const [filteredData, setFilteredData] = useState([]);
-
   useEffect(() => {
     dispatch(getBeerList());
   }, [dispatch]);
@@ -134,24 +118,13 @@ const BeerList = () => {
     );
   }, [selectedAdv, data]);
 
-  const handleClickAddWishList = (id) => {
-    dispatch(setWishList(id));
-  };
-
   const handleChangeSelectedAdv = (value) => {
     setSelectedAdv(value);
   };
 
   const handleColumnDragged = (sourceIndex, destinationIndex) => {
-    if (!beerTableColumns.length) {
-      dispatch(setBeerTableColumns(columns));
-    }
+    dispatch(setBeerTableColumns(columns));
     dispatch(changeBeerTableColumn([sourceIndex, destinationIndex]));
-  };
-
-  const showModal = (e) => {
-    setIsModalVisible(true);
-    setModalTarget(e.target.text);
   };
 
   return (
@@ -165,19 +138,12 @@ const BeerList = () => {
           <Loading tip="Loading..." />
         ) : (
           <MaterialTable
-            columns={beerTableColumns.length ? beerTableColumns : columns}
+            columns={columns}
             data={filteredData.length ? filteredData : data}
             title="Beer List: Click! on a beer name to see details🍺"
             options={{ paging: false }}
             onColumnDragged={handleColumnDragged}
             actions={customIcons}
-          />
-        )}
-        {isModalVisible && (
-          <BeerDetailInfo
-            isModalVisible={isModalVisible}
-            handleChangeVisible={setIsModalVisible}
-            target={modalTarget}
           />
         )}
       </BeerListTableWrapper>
