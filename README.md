@@ -53,10 +53,6 @@ The api returns a list of Beer Objects.
 과제 진행 중 추가적인 문의 사항이 있으실 경우, 언제든지 편하게 연락 주시기 바랍니다.
 </details>
 
-# Demo
-
-[Demo Link](https://bit.ly/3kE79ai)
-
 # 과제 진행 플로우
 ### Separate issue tasks -> Scheduling with Project Kanban Board
 
